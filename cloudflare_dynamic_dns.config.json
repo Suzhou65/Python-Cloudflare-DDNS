@@ -1,0 +1,35 @@
+{
+   "Telegram_BOTs":{
+      "TelegramToken": "",
+      "TelegramChatID": ""
+   },
+   "CloudflareAPI":{
+      "AuthToken": "",
+      "AuthMail": ""
+   },
+  "Zone":{
+      "ZoneID": ""
+   },
+  "RecordsID":{
+      "DNSRecordIPv4ID": "",
+      "DNSRecordIPv4Domain": "",
+      "DNSRecordIPv4ProxyAble": true,
+      "DNSRecordIPv4ProxyMode": true,
+      "DNSRecordIPv6ID": "",
+      "DNSRecordIPv6Domain": "",
+      "DNSRecordIPv6ProxyAble": true,
+      "DNSRecordIPv6ProxyMode": true
+   },
+   "IPAddressUpdateRecord": {
+      "DNSRecordIPv4": "",
+      "DNSRecordIPv4UpdateTime": "",
+      "DNSRecordIPv6": "",
+      "DNSRecordIPv6UpdateTime": ""
+  },
+  "CNAME": {
+      "DNSRecordCNAMEID": "",
+      "NAME": "",
+      "TARGET": "",
+      "DNSRecordCNAMEUpdateTime": ""
+   }
+}
