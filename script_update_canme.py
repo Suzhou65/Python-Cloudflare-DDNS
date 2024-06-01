@@ -5,7 +5,7 @@ import sys
 # Update CNAME record
 def Download_DNS_Record(ConfigPath, UpdateDNSRecordCNAME):
     # Check CNAME input
-    if type(UpdateDNSRecordCNAME) is dict or type(UpdateDNSRecordCNAME) is list:
+    if type(UpdateDNSRecordCNAME) is list:
         ResultDict = UpdateSpecifyDNSRecordCANME(ConfigPath, UpdateDNSRecordCNAME)
         # Error
         if type(ResultDict) is bool:
