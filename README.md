@@ -197,6 +197,7 @@ RecordIPv4 = cloudflare_dynamic_dns.RequestSpecifyDNSRecordIPv4(ConfigPath, Full
 # Print result
 print(RecordIPv4)
 ```
+Basic respon specify ```RecordsID``` reference to configuration. If you wish to request multiple or specify DNS A record manually, please define ```MultiRecord```.
 ### Request AAAA record
 ```python
 import cloudflare_dynamic_dns
@@ -207,6 +208,7 @@ RecordIPv6 = cloudflare_dynamic_dns.RequestSpecifyDNSRecordIPv6(ConfigPath, Full
 # Print result
 print(RecordIPv6)
 ```
+Basic respon specify ```RecordsID``` reference to configuration. If you wish to request multiple or specify DNS AAAA record manually, please define ```MultiRecord```.
 ### Update A record
 Please reference to the DDNS demo script ```script_ddns4.py```.
 ```python
@@ -225,6 +227,13 @@ elif type(UpdateStatus) is int:
 elif type(UpdateStatus) is bool:
   print("Error occurred during connect to Cloudflare API, please check the error log.")
 ```
+Basis update using Python String, please define IP address ```UpdateDNSRecordIPv4```. If you wish to update multiple or specify DNS AAAA record, please define ```MultiRecord``` which including ```RecordsID```, ```Domain Name```, ```Proxy Ability``` and ```Proxy Mode```, packing as Python List.
+```python
+# Array
+UpdateArray = ["RecordsID", "Domain Name", True, True]
+# Update record
+cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv4(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv4)
+```
 ### Update AAAA record
 Please reference to the DDNS demo script ```script_ddns6.py```.
 ```python
@@ -241,6 +250,13 @@ elif type(UpdateStatus) is int:
 # Error
 elif type(UpdateStatus) is bool:
   print("Error occurred during connect to Cloudflare API, please check the error log.")
+```
+Basis update using Python String, please define IP address ```UpdateDNSRecordIPv6```. If you wish to update multiple or specify DNS AAAA record, please define ```MultiRecord``` which including ```RecordsID```, ```Domain Name```, ```Proxy Ability``` and ```Proxy Mode```, packing as Python List.
+```python
+# Array
+UpdateArray = ["RecordsID", "Domain Name", True, True]
+# Update record
+cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv6(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv6)
 ```
 ### Update CNAME
 Please reference to the DDNS demo script ```script_update_canme.py```.
@@ -283,7 +299,6 @@ Basis update using Python List, please define CNAME ```NAME``` and ```VALUE``` i
 # Specify CNAME
 UpdateDNSRecordCNAME = ["Cloudflare_DNS_Records_ID", "name.cloudflare.dns", "target.cloudflare.dns"]
 ```
-
 
 ## Dependencies
 ### Python version
