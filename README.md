@@ -218,8 +218,8 @@ UpdateStatus = cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv4(ConfigPath, Upd
 # Get Cloudflare API respon
 if type(UpdateStatus) is dict:
   # Return success or not
-  SuccessOrNot = UpdateStatus["success"]
-  print(f"Cloudflare API Responses: {SuccessOrNot}.")
+  Success02Not = UpdateStatus["success"]
+  print(f"Cloudflare API Responses: {Success02Not}.")
 # Get HTTP status code
 elif type(UpdateStatus) is int:
   print(f"Unable connect to Cloudflare API, HTTP Status Code: {UpdateStatus}.")
