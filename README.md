@@ -234,16 +234,31 @@ UpdateArray = ["RecordsID", "Domain Name", True, True]
 # Update record
 cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv4(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv4)
 ```
+Alternatively, expansion to loops for update multiple A record, in case of hostng multiple domain name at same IP address.
+```python
+# Array
+Arraies = [
+    ["RecordsID_1", "Domain Name_1", True, True],
+    ["RecordsID_2", "Domain Name_2", True, True],
+    ["RecordsID_3", "Domain Name_3", True, True],
+    ["RecordsID_4", "Domain Name_4", True, True],
+    ["RecordsID_5", "Domain Name_5", True, True]
+    ]
+# Update record
+for Array in Arraies:
+    cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv4(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv4)
+```
 ### Update AAAA record
 Please reference to the DDNS demo script ```script_ddns6.py```.
 ```python
 import cloudflare_dynamic_dns
+# Update DNS AAAA record
 UpdateStatus = cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv6(ConfigPath, UpdateDNSRecordIPv6=CurrentIPv6)
 # Get Cloudflare API respon
 if type(UpdateStatus) is dict:
   # Return success or not
-  SuccessOrNot = UpdateStatus["success"]
-  print(f"Cloudflare API Responses: {SuccessOrNot}.")
+  Success02Not = UpdateStatus["success"]
+  print(f"Cloudflare API Responses: {Success02Not}.")
 # Get HTTP status code
 elif type(UpdateStatus) is int:
   print(f"Unable connect to Cloudflare API, HTTP Status Code: {UpdateStatus}.")
@@ -257,6 +272,20 @@ Basis update using Python String, please define IP address ```UpdateDNSRecordIPv
 UpdateArray = ["RecordsID", "Domain Name", True, True]
 # Update record
 cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv6(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv6)
+```
+Alternatively, expansion to loops for update multiple A record, in case of hostng multiple domain name at same IP address.
+```python
+# Array
+Arraies = [
+    ["RecordsID_1", "Domain Name_1", True, True],
+    ["RecordsID_2", "Domain Name_2", True, True],
+    ["RecordsID_3", "Domain Name_3", True, True],
+    ["RecordsID_4", "Domain Name_4", True, True],
+    ["RecordsID_5", "Domain Name_5", True, True]
+    ]
+# Update record
+for Array in Arraies:
+    cloudflare_dynamic_dns.UpdateSpecifyDNSRecordIPv6(ConfigPath, MultiRecord=UpdateArray, UpdateDNSRecordIPv4=CurrentIPv6)
 ```
 ### Update CNAME
 Please reference to the DDNS demo script ```script_update_canme.py```.
